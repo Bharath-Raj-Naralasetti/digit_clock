@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        div{
+            background-color: rgb(132, 132, 227);
+            height: 6vh;
+            width: 9vw;
+            position: relative;
+            left : 700px;
+            top : 300px;
+            color: darkred;
+            font-size: 30px;
+            font-weight: 5px;
+            padding: 10px;
+            margin: 10px;
+            border: 3px solid lightcoral;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+
+<body onload=" a() ">           
+
+    <div id="container"></div>
+
+</body>
+
+
+<script>
+
+    var a = () => {
+        let date = new Date();          // create a date object 
+
+        var h = date.getHours();        // to fetch the hour from the date object    
+
+        var m = date.getMinutes();      // to fetch the minutes from the date object
+
+        var sec = date.getSeconds();    // to fetch the seconds from the date object
+
+        console.log(`${h} : ${m} : ${sec}`);
+
+        h = b(h);                       // add zero to the number below than 10 in hours
+
+        m = b(m);                       // add zero to the number below than 10 in minutes
+
+        sec = b(sec);                   // add zero to the number below than 10 in seconds
+
+        document.getElementById('container').innerHTML = `${h} : ${m} : ${sec}`;        // add contains to the div tag with the html.
+
+        setTimeout(a, 1000);            // for every 1sec this method will call the a(). 
+    }
+    var b = (time) => {             // add zero to the number below than 10 in hours, minutes, seconds.
+
+        if (time < 10) 
+        {
+            time = "0" + time;
+        }
+        return time;
+    }
+</script>
+
+</body>
+
+</html>
